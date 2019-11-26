@@ -1,0 +1,32 @@
+<!-- Diese Werte verwendet die Uhr fürs Setting Menü. -->   
+<!-- Ein <setting></setting> block verbindet einen String mit einer property, also wohin dieser Wert gespeichert werden soll. -->
+<!-- Diese Settings werden auch am Handy angezeigt. -->
+   
+    <settings>
+        <setting propertyKey="@Properties.phase1Duration" title="@Strings.phase1">
+            <settingConfig type="numeric" />
+        </setting>
+
+        <setting propertyKey="@Properties.phase2Duration" title="@Strings.phase2">
+            <settingConfig type="numeric" />
+        </setting>
+
+        <setting propertyKey="@Properties.phase3Duration" title="@Strings.phase3">
+            <settingConfig type="numeric" />
+        </setting>
+
+
+        <!--
+        <setting propertyKey="@Properties.alarm" title="@Strings.alarm_title">
+            <settingConfig type="boolean" />
+        </setting>
+        -->
+                
+        <setting propertyKey="@Properties.alarmBeep" title="@Strings.alarm_beep">
+            <settingConfig type="boolean" />
+        </setting>
+                
+        <setting propertyKey="@Properties.alarmVibrate" title="@Strings.alarm_vibrate">
+            <settingConfig type="boolean" />
+        </setting>
+    </settings>

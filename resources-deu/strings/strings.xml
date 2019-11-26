@@ -1,0 +1,28 @@
+<strings>
+    <string id="AppName">Apnoe Statik</string>
+
+    <string id="prompt">klick den Menü button</string>
+
+    <string id="phase1">RELAX-1</string>
+    <string id="phase2">HYPERVEN.</string>
+    <string id="phase3">RELAX-2</string>
+    <string id="phase4">STATIK</string>
+    
+    <string id="alarm_beep">Alarm-Ton</string>
+    <string id="alarm_vibrate">Vibrations-Alarm</string>
+    
+    <string id="phase">Phase</string>
+    <string id="phase_data_label">Phase</string>    
+    <string id="phase_unit_label">Phase</string>
+    <string id="heartRatePrefix">hr</string>
+    
+    <string id="saveActivityQuestion">Aktivität speichern?</string>
+
+    <string id="timePickerTitle">Phase</string>
+    <string id="timeSeparator">Phase</string>
+    
+    <!-- Setting strings -->
+    <string id="settingmenutitel">Einstellungen</string>
+    <string id="alarmOnOff">an/aus</string>
+    <!-- ENDE Setting strings -->   
+</strings>

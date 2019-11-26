@@ -1,0 +1,8 @@
+    <properties>
+        <property id="phase1Duration" type="number">120</property>
+        <property id="phase2Duration" type="number">30</property>
+        <property id="phase3Duration" type="number">150</property>
+        <!-- <property id="alarm" type="boolean">true</property> -->
+        <property id="alarmBeep" type="boolean">true</property>
+        <property id="alarmVibrate" type="boolean">true</property>
+    </properties>

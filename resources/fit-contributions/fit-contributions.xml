@@ -1,0 +1,5 @@
+<fitContributions>
+    <fitField id="0" displayInChart="true" sortOrder = "0" precision="0"
+     chartTitle="@Strings.phase" dataLabel="@Strings.phase_data_label"
+     unitLabel="@Strings.phase_unit_label" fillColor="#FF0000" />
+</fitContributions>
