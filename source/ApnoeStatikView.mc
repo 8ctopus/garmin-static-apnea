@@ -295,14 +295,14 @@ class ApnoeStatikView extends WatchUi.View {
 
         doAlarms();
 
-        if (zeit == 0) {
+        if (zeit == 0 || zeit < 0) {
             current += 1;
             savePhaseInFitField();
 
             modus = sequenz[current][NAME];
             zeit = getDuration(sequenz[current]);
 
-            if (zeit == 0) {
+            if (current == sequenz.size() - 1) {
                 //current += 1; // invalid current, but easy to check, if we have finished
                 savePhaseInFitField();
                 timerDirection = UP;
