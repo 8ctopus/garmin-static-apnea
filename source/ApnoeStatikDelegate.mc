@@ -2,7 +2,8 @@ using Toybox.WatchUi;
 
 class ApnoeStatikDelegate extends WatchUi.BehaviorDelegate {
 
-    hidden const KEY = WatchUi.KEY_ENTER;
+    hidden const KEY_START_STOP = WatchUi.KEY_ENTER;
+    hidden const KEY_NEXT_PHASE = WatchUi.KEY_DOWN;
 
     hidden var apnoeView;
 
@@ -11,23 +12,24 @@ class ApnoeStatikDelegate extends WatchUi.BehaviorDelegate {
         apnoeView = _apnoeView;
     }
 
-    function shouldAskSaveSession() {
-        // We are in the final phase and the timer has already been stopped.
-        // Ask if we want to save the session.
-        return (current + 1) >= sequenz.size() && timerIsPaused;
+    function isLastPhase() {
+        return (current + 1) >= sequenz.size();
     }
 
     function onBack() {
-        if (shouldAskSaveSession()) {
+        if (isLastPhase() && timerIsPaused) {
             askSaveSession();
-            return true;
+            return true;  // don't do anything else.
+        } else if (isLastPhase() && !timerIsPaused) {
+            // simply stop timer -- don't do anything else.
+            timerIsPaused = !timerIsPaused;
+            return true;  // don't do anything else.
         }
         return false;
     }
 
     function onKey(evt) {
-        // KEY is the constant defined at the top of this file.
-        if (evt.getKey() != KEY) {
+        if (evt.getKey() != KEY_START_STOP && evt.getKey() != KEY_NEXT_PHASE) {
             return false;
         }
 
@@ -35,11 +37,20 @@ class ApnoeStatikDelegate extends WatchUi.BehaviorDelegate {
             return true;
         }
 
-        if (shouldAskSaveSession()) {
-            askSaveSession();
-        } else {
-            timerIsPaused = !timerIsPaused;
+
+        // KEY_START_STOP is the constant defined at the top of this file.
+        if (evt.getKey() == KEY_START_STOP) {
+            if (isLastPhase() && timerIsPaused) {
+                askSaveSession();
+            } else {
+                timerIsPaused = !timerIsPaused;
+            }
+        } else if (evt.getKey() == KEY_NEXT_PHASE) {
+            if (current < sequenz.size() - 1) {
+                zeit = 1;
+            }
         }
+
 
         return true;
     }

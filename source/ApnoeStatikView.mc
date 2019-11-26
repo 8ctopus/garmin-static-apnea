@@ -44,7 +44,7 @@ var sequenz = [
 ];
 
 var current = 0;
-
+var zeit; // zeit is in seconds * 10
 var timerIsPaused = true;
 
 var session = null;                                             // set up session variable
@@ -59,7 +59,6 @@ class ApnoeStatikView extends WatchUi.View {
     hidden var timerDirection;
 
     hidden var modus;
-    hidden var zeit; // zeit is in seconds * 10
     hidden var puls;
 
     hidden var fitField;
