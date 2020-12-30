@@ -1,7 +1,7 @@
 <drawables>
     <bitmap id="LauncherIcon" filename="Apnoe-Statik_40.png" />
     <drawable-list id="Einteilung" background="Gfx.COLOR_TRANSPARENT">
-      <shape type="rectangle" x="0" y="77" width="240" height="3" color="0xFFFF00" />
-      <shape type="rectangle" x="0" y="160" width="240" height="3" color="0xFFFF00" />
+      <shape type="rectangle" x="0" y="32%" width="100%" height="3" color="0xFFFF00" />
+      <shape type="rectangle" x="0" y="68%" width="100%" height="3" color="0xFFFF00" />
     </drawable-list>
 </drawables>
