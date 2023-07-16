@@ -41,9 +41,9 @@ var sequence = [
     },
     {
         // [3]   STATIK
-        NAME => Rez.Strings.phase4,
         // LAST PHASE MUST NOT HAVE A PROPERTY
         // Dadurch wissen wir, welche phase die letzte ist.
+          NAME => Rez.Strings.phase4,
     }
 ];
 

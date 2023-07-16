@@ -29,7 +29,7 @@ class NumberFactory extends WatchUi.PickerFactory {
             mFont = Graphics.FONT_NUMBER_HOT;
         }
 
-        // Unsere Picker Zahlen sollen immer 2 stellig mit führender 0 sein.
+        // numbers must be in 2 digits with leading zero
         mFormatString = "%02d";
     }
 

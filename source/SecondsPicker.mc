@@ -6,24 +6,25 @@ class SecondsPicker extends WatchUi.Picker {
         var factories = [
             new NumberFactory(0, 59, 1, {}),
             new WatchUi.Text({
-                :text  => ":",
-                :font  => Graphics.FONT_NUMBER_HOT,
-                :locX  => WatchUi.LAYOUT_HALIGN_CENTER,
-                :locY  => WatchUi.LAYOUT_VALIGN_CENTER,
+                :text => ":",
+                :font => Graphics.FONT_NUMBER_HOT,
+                :locX => WatchUi.LAYOUT_HALIGN_CENTER,
+                :locY => WatchUi.LAYOUT_VALIGN_CENTER,
                 :color => Graphics.COLOR_WHITE
             }),
             new NumberFactory(0, 59, 1, {})
         ];
 
         var titleDrawable = new WatchUi.Text({
-            :text  => title,
-            :font  => Graphics.FONT_MEDIUM,
-            :locX  => WatchUi.LAYOUT_HALIGN_CENTER,
-            :locY  => WatchUi.LAYOUT_VALIGN_CENTER,
+            :text => title,
+            :font => Graphics.FONT_MEDIUM,
+            :locX => WatchUi.LAYOUT_HALIGN_CENTER,
+            :locY => WatchUi.LAYOUT_VALIGN_CENTER,
             :color => Graphics.COLOR_WHITE
         });
 
         var defaults = [defaultSeconds / 60, 0, defaultSeconds % 60];
+
         Picker.initialize({
             :pattern => factories,
             :defaults => defaults,
