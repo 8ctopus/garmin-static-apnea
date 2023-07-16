@@ -28,22 +28,19 @@ var sequence = [
         // [0]   RELAX1
         NAME => Rez.Strings.phase1,
         PROPERTY => "phase1Duration"
-    },
-    {
+    }, {
         // [1]   HYPERVEN
         NAME => Rez.Strings.phase2,
         PROPERTY => "phase2Duration"
-    },
-    {
+    }, {
         // [2]   RELAX2
         NAME => Rez.Strings.phase3,
         PROPERTY => "phase3Duration"
-    },
-    {
+    }, {
         // [3]   STATIK
         // LAST PHASE MUST NOT HAVE A PROPERTY
         // Dadurch wissen wir, welche phase die letzte ist.
-          NAME => Rez.Strings.phase4,
+        NAME => Rez.Strings.phase4,
     }
 ];
 

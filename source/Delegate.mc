@@ -97,7 +97,9 @@ class Delegate extends WatchUi.BehaviorDelegate {
             // %02d bedeutet zwei Stellen mit führender 0
             // https://developer.garmin.com/downloads/connect-iq/monkey-c/doc/Toybox/Lang/Number.html#format-instance_method
             var seconds = savedSeconds % 60;
-            var subLabel = "" + minutes + ":" + seconds.format("%02d");  // Wir starten mit einem leeren String, damit der Compiler für das + in den Textmodus springt.
+
+            // Wir starten mit einem leeren String, damit der Compiler für das + in den Textmodus springt.
+            var subLabel = "" + minutes + ":" + seconds.format("%02d");
             var id = phase[PROPERTY];
 
             var menuItem = new WatchUi.MenuItem(label, subLabel, id, options);
