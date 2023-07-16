@@ -70,7 +70,7 @@ class Delegate extends WatchUi.BehaviorDelegate {
      * @return [Boolean] true if handled, false otherwise
      */
     public function onMenu() {
-        var titletext = WatchUi.loadResource(Rez.Strings.settingmenutitel);
+        var titletext = WatchUi.loadResource(Rez.Strings.SettingsMenuTitle);
         var menu = new WatchUi.Menu2({:title=> titletext});
         var options = {};
 

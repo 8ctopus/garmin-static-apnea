@@ -3,10 +3,10 @@
 
     <string id="prompt">click the menu button</string>
 
-    <string id="phase1">RELAX-1</string>
-    <string id="phase2">HYPERVEN.</string>
-    <string id="phase3">RELAX-2</string>
-    <string id="phase4">STATIC</string>
+    <string id="phase1">relaxation 1 (s)</string>
+    <string id="phase2">hyperventilation (s)</string>
+    <string id="phase3">relaxation 2 (s)</string>
+    <string id="phase4">static</string>
     
     <string id="alarm_beep">Alarm Beep</string>
     <string id="alarm_vibrate">Alarm Vibrate</string>
@@ -22,7 +22,7 @@
     <string id="timeSeparator">phase</string>
     
     <!-- Setting strings -->
-    <string id="settingmenutitel">settings</string>
+    <string id="SettingsMenuTitle">settings</string>
     <string id="alarmOnOff">on/off</string>
     <!-- ENDE Setting strings -->
 </strings>

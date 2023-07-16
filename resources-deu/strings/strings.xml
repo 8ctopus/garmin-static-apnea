@@ -22,7 +22,7 @@
     <string id="timeSeparator">Phase</string>
     
     <!-- Setting strings -->
-    <string id="settingmenutitel">Einstellungen</string>
+    <string id="SettingsMenuTitle">Einstellungen</string>
     <string id="alarmOnOff">an/aus</string>
     <!-- ENDE Setting strings -->   
 </strings>
