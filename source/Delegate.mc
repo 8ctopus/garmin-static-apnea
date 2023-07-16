@@ -18,13 +18,11 @@ class Delegate extends WatchUi.BehaviorDelegate {
         if (isLastPhase() && gTimerIsPaused) {
             askSaveSession();
 
-            // don't do anything else.
+            // don't do anything else
             return true;
         } else if (isLastPhase() && !gTimerIsPaused) {
-            // simply stop timer -- don't do anything else.
+            // simply stop timer, don't do anything else
             gTimerIsPaused = !gTimerIsPaused;
-
-            // don't do anything else.
             return true;
         }
 
@@ -40,7 +38,6 @@ class Delegate extends WatchUi.BehaviorDelegate {
             return true;
         }
 
-        // KEY_START_STOP is the constant defined at the top of this file.
         if (evt.getKey() == KEY_START_STOP) {
             if (isLastPhase() && gTimerIsPaused) {
                 askSaveSession();
@@ -84,8 +81,8 @@ class Delegate extends WatchUi.BehaviorDelegate {
             var phase = gPhases[i];
 
             if (phase[PROPERTY] == null) {
-            // Für diese Phase gibt es keinen Zahlenwert zu speicher (z.B. Statik).
-            continue;
+                // Für diese Phase gibt es keinen Zahlenwert zu speicher (z.B. Statik).
+                continue;
             }
 
             var label = phase[NAME];
