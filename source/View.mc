@@ -61,7 +61,7 @@ class View extends WatchUi.View {
 
     hidden var timerDirection;
 
-    hidden var modus;
+    hidden var mode;
     hidden var pulse;
 
     hidden var fitField;
@@ -96,7 +96,7 @@ class View extends WatchUi.View {
 
         timerDirection = DOWN;
 
-        modus = sequence[0][NAME];
+        mode = sequence[0][NAME];
 
         // zeit is in seconds * 10
         zeit = null;
@@ -316,7 +316,7 @@ class View extends WatchUi.View {
             current += 1;
             savePhaseInFitField();
 
-            modus = sequence[current][NAME];
+            mode = sequence[current][NAME];
             zeit = getDuration(sequence[current]);
 
             if (current == sequence.size() - 1) {
@@ -347,6 +347,9 @@ class View extends WatchUi.View {
 
     // Update the view
     function onUpdate(dc) {
+        var textField = View.findDrawableById("modeId");
+        textField.setText(mode);
+
         var currentTime = zeit;
 
         if (currentTime == null) {
@@ -354,9 +357,6 @@ class View extends WatchUi.View {
         }
 
         var currentTimeText = convertTimeToText(currentTime);
-
-        var textField = View.findDrawableById("modusId");
-        textField.setText(modus);
 
         textField = View.findDrawableById("zeitId");
         textField.setText(currentTimeText);
