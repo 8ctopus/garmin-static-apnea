@@ -4,11 +4,11 @@ class Delegate extends WatchUi.BehaviorDelegate {
     protected const KEY_START_STOP = WatchUi.KEY_ENTER;
     protected const KEY_NEXT_PHASE = WatchUi.KEY_DOWN;
 
-    protected var apnoeView;
+    protected var view;
 
-    public function initialize(_apnoeView) {
+    public function initialize(_view) {
         BehaviorDelegate.initialize();
-        apnoeView = _apnoeView;
+        view = _view;
     }
 
     public function isLastPhase() {
@@ -65,7 +65,7 @@ class Delegate extends WatchUi.BehaviorDelegate {
 
         var message = WatchUi.loadResource(Rez.Strings.saveActivityQuestion);
         var view = new WatchUi.Confirmation(message);
-        var delegate = new SaveSessionConfirmationDelegate(apnoeView);
+        var delegate = new SaveSessionConfirmationDelegate(view);
         WatchUi.pushView(view, delegate, WatchUi.SLIDE_UP);
     }
 
