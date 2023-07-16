@@ -7,6 +7,6 @@
 		id="zeitId" justification="Graphics.TEXT_JUSTIFY_CENTER"
 		font="Graphics.FONT_NUMBER_THAI_HOT" />
     <label x="center" y="71%" color="0xFFFFAA"
-        justification="Graphics.TEXT_JUSTIFY_CENTER" id="pulsId"
+        justification="Graphics.TEXT_JUSTIFY_CENTER" id="pulseId"
 	    font="Graphics.FONT_LARGE" />
 </layout>

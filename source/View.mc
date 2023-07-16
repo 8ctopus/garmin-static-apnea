@@ -65,7 +65,7 @@ class View extends WatchUi.View {
     hidden var timerDirection;
 
     hidden var modus;
-    hidden var puls;
+    hidden var pulse;
 
     hidden var fitField;
 
@@ -119,7 +119,7 @@ class View extends WatchUi.View {
     }
 
     function onSensor(sensorInfo) {
-        puls = sensorInfo.heartRate;
+        pulse = sensorInfo.heartRate;
         WatchUi.requestUpdate();
     }
 
@@ -256,23 +256,30 @@ class View extends WatchUi.View {
                 beepVibrate(50, 250);
             } else if (zeit == 100) {
                 beepVibrate(50, 250);
-            } else if (zeit == 0) { // zeit == 0 wird gefragt bevor zeit <= 50 (nächster if block)
+            } else if (zeit == 0) {
+                // zeit == 0 wird gefragt bevor zeit <= 50 (nächster if block)
                 beepVibrate(100, 750);
-            } else if (zeit <= 50 && zeit % 10 == 0) {  // durch else if   wird dieser block nicht ausgeführt, wenn zeit == 0
-                beepVibrate(50, 250);                   // alternativ könnte man && zeit > 0 zum if hinzufügen.
+            } else if (zeit <= 50 && zeit % 10 == 0) {
+                // durch else if   wird dieser block nicht ausgeführt, wenn zeit == 0
+                // alternativ könnte man && zeit > 0 zum if hinzufügen.
+                beepVibrate(50, 250);
             }
         }
 
         if (current == HYPERVEN) {
-            if (zeit == 0) { // zeit == 0 wird gefragt bevor zeit <= 50 (nächster if block)
+            if (zeit == 0) {
+                // zeit == 0 wird gefragt bevor zeit <= 50 (nächster if block)
                 beepVibrate(100, 750);
-            } else if (zeit <= 50 && zeit % 10 == 0) {  // durch else if   wird dieser block nicht ausgeführt, wenn zeit == 0
-                beepVibrate(50, 250);                   // alternativ könnte man && zeit > 0 zum if hinzufügen.
+            } else if (zeit <= 50 && zeit % 10 == 0) {
+                // durch else if   wird dieser block nicht ausgeführt, wenn zeit == 0
+                // alternativ könnte man && zeit > 0 zum if hinzufügen.
+                beepVibrate(50, 250);
             }
         }
 
         if (current == STATIK) {
-            if (zeit <= 50 && zeit % 10 == 0 && zeit > 0) {  // 0 wird eh noch vom RELAX2 0er alarmiert.
+            if (zeit <= 50 && zeit % 10 == 0 && zeit > 0) {
+                // 0 wird eh noch vom RELAX2 0er alarmiert.
                 beepVibrate(50, 250);
             }
         }
@@ -357,12 +364,12 @@ class View extends WatchUi.View {
         textField = View.findDrawableById("zeitId");
         textField.setText(currentTimeText);
 
-        textField = View.findDrawableById("pulsId");
+        textField = View.findDrawableById("pulseId");
 
         var hrPrefix = WatchUi.loadResource(Rez.Strings.heartRatePrefix);
 
-        if (puls != null && puls > 0) {
-            textField.setText(hrPrefix + " " + puls);
+        if (pulse != null && pulse > 0) {
+            textField.setText(hrPrefix + " " + pulse);
         } else {
             textField.setText(hrPrefix + " --");
         }
