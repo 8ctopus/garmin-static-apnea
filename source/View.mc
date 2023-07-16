@@ -1,11 +1,11 @@
-using Toybox.WatchUi;
-using Toybox.Application;
-using Toybox.Timer;
-using Toybox.Sensor;
 using Toybox.ActivityRecording;
+using Toybox.Application;
+using Toybox.Attention;
 using Toybox.FitContributor;
 using Toybox.Graphics;
-using Toybox.Attention;
+using Toybox.Sensor;
+using Toybox.Timer;
+using Toybox.WatchUi;
 
 const FIT_FIELD_PHASE_ID = 0;
 
