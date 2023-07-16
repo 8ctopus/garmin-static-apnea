@@ -44,7 +44,7 @@ var gSequence = [
     }
 ];
 
-var current = 0;
+var gCurrent = 0;
 
 // zeit is in seconds * 10
 var zeit;
@@ -90,7 +90,7 @@ class View extends WatchUi.View {
     }
 
     function restart() {
-        current = 0;
+        gCurrent = 0;
         gTimerIsPaused = true;
         gSession = null;
 
@@ -163,7 +163,7 @@ class View extends WatchUi.View {
 
     function savePhaseInFitField() {
         if (fitField != null) {
-            fitField.setData(current + 1);
+            fitField.setData(gCurrent + 1);
         }
     }
 
@@ -226,9 +226,9 @@ class View extends WatchUi.View {
         // a == b ? 1 : 2     means if a equals b then use 1 else use 2
 
         // ALARM SETINGS BEISTIEL -------------------------------------------------------------------
-        //   if (current == 0 || current == 2) {
+        //   if (gCurrent == 0 || gCurrent == 2) {
                 // For phase 1 (relax-1) and phase 3 (relax-2) only.
-                // Note that current starts with 0
+                // Note that gCurrent starts with 0
 
         //        if (timeInSeconds >= 30 && timeInSeconds % 10 == 0) {
                     // display time must be greater equal AND display time divides without "rest" (0 rest) by 10, then:
@@ -244,7 +244,7 @@ class View extends WatchUi.View {
         // ALARM SETINGS BEISTIEL -------------------------------------------------------------------
 
         // zeit is in zehntel-Sekunden !
-        if (current == RELAX1 || current == RELAX2 ) {
+        if (gCurrent == RELAX1 || gCurrent == RELAX2) {
             if (zeit > 300 && zeit % 300 == 0) {
                 beepVibrate(50, 250);
             } else if (zeit == 300 || zeit == 300-5 || zeit == 300-10) {
@@ -263,7 +263,7 @@ class View extends WatchUi.View {
             }
         }
 
-        if (current == HYPERVEN) {
+        if (gCurrent == HYPERVEN) {
             if (zeit == 0) {
                 // zeit == 0 wird gefragt bevor zeit <= 50 (nächster if block)
                 beepVibrate(100, 750);
@@ -274,7 +274,7 @@ class View extends WatchUi.View {
             }
         }
 
-        if (current == STATIK) {
+        if (gCurrent == STATIK) {
             if (zeit <= 50 && zeit % 10 == 0 && zeit > 0) {
                 // 0 wird eh noch vom RELAX2 0er alarmiert.
                 beepVibrate(50, 250);
@@ -287,9 +287,9 @@ class View extends WatchUi.View {
         var lastPhase = gSequence.size() - 1;
 
         if (gTimerIsPaused) {
-            if (current == lastPhase) {
+            if (gCurrent == lastPhase) {
                 // Because we stop the timer here, this is only called once.
-                // And only possible if we are already in the last phase (current == gSequence.size() - 1)
+                // And only possible if we are already in the last phase (gCurrent == gSequence.size() - 1)
                 stopActivityRecording();
                 timer.stop();
             }
@@ -313,14 +313,14 @@ class View extends WatchUi.View {
         doAlarms();
 
         if (zeit == 0 || zeit < 0) {
-            current += 1;
+            gCurrent += 1;
             savePhaseInFitField();
 
-            mode = gSequence[current][NAME];
-            zeit = getDuration(gSequence[current]);
+            mode = gSequence[gCurrent][NAME];
+            zeit = getDuration(gSequence[gCurrent]);
 
-            if (current == gSequence.size() - 1) {
-                //current += 1; // invalid current, but easy to check, if we have finished
+            if (gCurrent == gSequence.size() - 1) {
+                //gCurrent += 1; // invalid but easy to check if we have finished
                 savePhaseInFitField();
                 timerDirection = UP;
             }

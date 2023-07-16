@@ -12,7 +12,7 @@ class Delegate extends WatchUi.BehaviorDelegate {
     }
 
     function isLastPhase() {
-        return (current + 1) >= gSequence.size();
+        return (gCurrent + 1) >= gSequence.size();
     }
 
     function onBack() {
@@ -49,7 +49,7 @@ class Delegate extends WatchUi.BehaviorDelegate {
                 gTimerIsPaused = !gTimerIsPaused;
             }
         } else if (evt.getKey() == KEY_NEXT_PHASE) {
-            if (current < gSequence.size() - 1) {
+            if (gCurrent < gSequence.size() - 1) {
                 zeit = 1;
             }
         }
