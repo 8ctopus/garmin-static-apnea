@@ -8,7 +8,10 @@ const PROPERTY = "property";
 const ALARM_BEEP_PROP_NAME = "alarmBeep";
 const ALARM_VIBRATE_PROP_NAME = "alarmVibrate";
 
-// we give the phases names in the event, we want to add more, we don't have to change the code.
+// set up session variable
+var gSession = null;
+
+// we give the phases names in the event if we want to add more, we don't have to change the code
 const RELAX1 = 0;
 const HYPERVEN = 1;
 const RELAX2 = 2;
@@ -34,14 +37,11 @@ var gPhases = [
     }
 ];
 
-var gCurrent = 0;
+var gCurrentPhase = 0;
 
 // in seconds * 10
 var gTime;
 var gTimerIsPaused = true;
-
-// set up session variable
-var gSession = null;
 
 class App extends Application.AppBase {
     public function initialize() {
