@@ -12,7 +12,7 @@ class Delegate extends WatchUi.BehaviorDelegate {
     }
 
     function isLastPhase() {
-        return (current + 1) >= sequence.size();
+        return (current + 1) >= gSequence.size();
     }
 
     function onBack() {
@@ -49,7 +49,7 @@ class Delegate extends WatchUi.BehaviorDelegate {
                 gTimerIsPaused = !gTimerIsPaused;
             }
         } else if (evt.getKey() == KEY_NEXT_PHASE) {
-            if (current < sequence.size() - 1) {
+            if (current < gSequence.size() - 1) {
                 zeit = 1;
             }
         }
@@ -78,11 +78,11 @@ class Delegate extends WatchUi.BehaviorDelegate {
 
         var options = {};
 
-        // Schleife um über alle Einträge in der sequence variable.
-        for (var i = 0; i < sequence.size(); i++) {
+        // Schleife um über alle Einträge in der gSequence variable.
+        for (var i = 0; i < gSequence.size(); i++) {
             // - 1 weil Statik keinen gespeicherten Zahlenwert hat.
             // Dieser Code wird der Reihe nach für RELAX1, HYPERVEN, RELAX2, STATIK ausgeführt.
-            var phase = sequence[i];
+            var phase = gSequence[i];
 
             if (phase[PROPERTY] == null) {
             // Für diese Phase gibt es keinen Zahlenwert zu speicher (z.B. Statik).
