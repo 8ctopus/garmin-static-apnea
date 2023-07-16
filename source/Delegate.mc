@@ -69,13 +69,13 @@ class Delegate extends WatchUi.BehaviorDelegate {
         WatchUi.pushView(view, delegate, WatchUi.SLIDE_UP);
     }
 
-    // When a menu behavior occurs, onMenu() is called.
-    // @return [Boolean] true if handled, false otherwise
+    /**
+     * When a menu behavior occurs
+     * @return [Boolean] true if handled, false otherwise
+     */
     function onMenu() {
         var titletext = WatchUi.loadResource(Rez.Strings.settingmenutitel);
         var menu = new WatchUi.Menu2({:title=> titletext});
-        //var delegate;
-
         var options = {};
 
         // Schleife um über alle Einträge in der gPhases variable.
