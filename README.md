@@ -33,10 +33,18 @@ You will need the following watches installed
 
     https://code.visualstudio.com/
 
-#### install the VSCode Monkey C extension
+### install the VSCode Monkey C extension
 
 - After Visual Studio Code restarts, summon the command palette with Ctrl + Shift + P (Command + Shift + P on Mac).
 - Type "Verify Installation" and select Monkey C: Verify Installation
+
+## alternatively Sublime Text
+
+    https://www.sublimetext.com/
+
+### install the Sublime Text Monkey C extension
+
+    https://github.com/pzl/Sublime-MonkeyC
 
 ## debugging
 
