@@ -15,9 +15,7 @@ const PROPERTY = "property";
 const ALARM_BEEP_PROP_NAME = "alarmBeep";
 const ALARM_VIBRATE_PROP_NAME = "alarmVibrate";
 
-// Wir geben den phasen hier Namen.
-// Sollten wir einmal zusätzliche Phasen einführen, muss nicht der ganze Code nach hardcodierten Zahlen durchsucht werden.
-// Zum Beispiel relevant im Alarm-Code.
+// we give the phases names in the event, we want to add more, we don't have to change the code.
 const RELAX1 = 0;
 const HYPERVEN = 1;
 const RELAX2 = 2;
@@ -25,21 +23,20 @@ const STATIK = 3;
 
 var gPhases = [
     {
-        // [0]   RELAX1
+        // relaxation
         NAME => Rez.Strings.phase1,
         PROPERTY => "phase1Duration"
     }, {
-        // [1]   HYPERVEN
+        // hyperventilation
         NAME => Rez.Strings.phase2,
         PROPERTY => "phase2Duration"
     }, {
-        // [2]   RELAX2
+        // relaxation
         NAME => Rez.Strings.phase3,
         PROPERTY => "phase3Duration"
     }, {
-        // [3]   STATIK
-        // LAST PHASE MUST NOT HAVE A PROPERTY
-        // Dadurch wissen wir, welche phase die letzte ist.
+        // static apnea
+        // LAST PHASE MUST NOT HAVE A PROPERTY so we know which one is the last one
         NAME => Rez.Strings.phase4,
     }
 ];
