@@ -1,10 +1,9 @@
 using Toybox.WatchUi;
 
 class Delegate extends WatchUi.BehaviorDelegate {
+    protected var view;
     protected const KEY_START_STOP = WatchUi.KEY_ENTER;
     protected const KEY_NEXT_PHASE = WatchUi.KEY_DOWN;
-
-    protected var view;
 
     public function initialize(_view) {
         BehaviorDelegate.initialize();
