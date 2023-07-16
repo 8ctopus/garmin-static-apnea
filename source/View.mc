@@ -73,8 +73,9 @@ class View extends WatchUi.View {
 
     function getDuration(seq) {
         var propName = seq[PROPERTY];
+
         if (propName == null) {
-          return 0;
+            return 0;
         }
 
         // Timer is called 10 times / second.
@@ -86,6 +87,7 @@ class View extends WatchUi.View {
     function initialize() {
         restart();
         View.initialize();
+
         Sensor.setEnabledSensors([Sensor.SENSOR_HEARTRATE]);
         Sensor.enableSensorEvents(method(:onSensor));
     }
@@ -131,11 +133,14 @@ class View extends WatchUi.View {
             var activityphase = activityname + " " + datafield;
 
             if ((session == null) || (session.isRecording() == false)) {
+                // set up recording session
                 session = ActivityRecording.createSession({
-                    // set up recording session
-                    :name=> activityname,                           // set session name
-                    :sport=> ActivityRecording.SPORT_GENERIC,       // set sport type
-                    :subSport=> ActivityRecording.SUB_SPORT_GENERIC // set sub sport type
+                    // set session name
+                    :name => activityname,
+                    // set sport type
+                    :sport => ActivityRecording.SPORT_GENERIC,
+                    // set sub sport type
+                    :subSport => ActivityRecording.SUB_SPORT_GENERIC
                 });
 
                 fitField = session.createField(
@@ -333,8 +338,7 @@ class View extends WatchUi.View {
         // %02d bedeutet zwei Stellen mit führender 0
         // https://developer.garmin.com/downloads/connect-iq/monkey-c/doc/Toybox/Lang/Number.html#format-instance_method
         //  x / y ist ganzahlige Division
-        var result = "" + timeInS / 60 + ":" + seconds.format("%02d");
-        return result;
+        return "" + timeInS / 60 + ":" + seconds.format("%02d");
     }
 
     // Update the view
@@ -342,7 +346,7 @@ class View extends WatchUi.View {
         var currentZeit = zeit;
 
         if (currentZeit == null) {
-          currentZeit = getDuration(sequenz[0]);
+            currentZeit = getDuration(sequenz[0]);
         }
 
         var zeitText = convertTimeToText(currentZeit);
@@ -355,6 +359,7 @@ class View extends WatchUi.View {
         textFeld.setText(zeitText);
 
         textFeld = View.findDrawableById("pulsId");
+
         var hrPrefix = WatchUi.loadResource(Rez.Strings.heartRatePrefix);
 
         if (puls != null && puls > 0) {

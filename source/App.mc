@@ -7,7 +7,6 @@ class App extends Application.AppBase {
 
     function getInitialView() {
         var view = new View();
-        var delegate = new Delegate(view);
-        return [view, delegate];
+        return [view, new Delegate(view)];
     }
 }
