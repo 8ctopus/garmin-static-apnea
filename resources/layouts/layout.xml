@@ -4,7 +4,7 @@
 		justification="Graphics.TEXT_JUSTIFY_CENTER" id="modeId"
 		font="Graphics.FONT_LARGE" />
 	<label x="center" y="center" color="0xFFFF00"
-		id="zeitId" justification="Graphics.TEXT_JUSTIFY_CENTER"
+		id="timeId" justification="Graphics.TEXT_JUSTIFY_CENTER"
 		font="Graphics.FONT_NUMBER_THAI_HOT" />
     <label x="center" y="71%" color="0xFFFFAA"
         justification="Graphics.TEXT_JUSTIFY_CENTER" id="pulseId"

@@ -345,7 +345,6 @@ class View extends WatchUi.View {
         return "" + timeInS / 60 + ":" + seconds.format("%02d");
     }
 
-    // Update the view
     function onUpdate(dc) {
         var textField = View.findDrawableById("modeId");
         textField.setText(mode);
@@ -358,7 +357,7 @@ class View extends WatchUi.View {
 
         var currentTimeText = convertTimeToText(currentTime);
 
-        textField = View.findDrawableById("zeitId");
+        textField = View.findDrawableById("timeId");
         textField.setText(currentTimeText);
 
         textField = View.findDrawableById("pulseId");
