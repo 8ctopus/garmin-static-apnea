@@ -2,11 +2,11 @@ using Toybox.Graphics;
 using Toybox.WatchUi;
 
 class NumberFactory extends WatchUi.PickerFactory {
-    hidden var mStart;
-    hidden var mStop;
-    hidden var mIncrement;
-    hidden var mFormatString;
-    hidden var mFont;
+    protected var mStart;
+    protected var mStop;
+    protected var mIncrement;
+    protected var mFormatString;
+    protected var mFont;
 
     function getIndex(value) {
         var index = (value / mIncrement) - mStart;

@@ -1,7 +1,7 @@
 using Toybox.WatchUi;
 
 class SaveSessionConfirmationDelegate extends WatchUi.ConfirmationDelegate {
-    hidden var view;
+    protected var view;
 
     function initialize(view) {
         ConfirmationDelegate.initialize();

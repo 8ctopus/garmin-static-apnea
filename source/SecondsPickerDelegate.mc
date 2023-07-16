@@ -2,8 +2,8 @@ using Toybox.Application;
 using Toybox.WatchUi;
 
 class SecondsPickerDelegate extends WatchUi.PickerDelegate {
-    hidden var menuItem;
-    hidden var propertyName;
+    protected var menuItem;
+    protected var propertyName;
 
     // Eigentlich ist die ID vom menuItem der propertyName.
     // Allerdings wollen wir das irgendwann ändern. Darum geben wir den property namen zusätzlich mit.

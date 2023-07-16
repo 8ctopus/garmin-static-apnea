@@ -56,14 +56,14 @@ class View extends WatchUi.View {
         DOWN = -1
     }
 
-    hidden var timerDirection;
+    protected var timerDirection;
 
-    hidden var mode;
-    hidden var pulse;
+    protected var mode;
+    protected var pulse;
 
-    hidden var fitField;
+    protected var fitField;
 
-    hidden var timer = new Timer.Timer();
+    protected var timer = new Timer.Timer();
 
     function getDuration(seq) {
         var propName = seq[PROPERTY];
