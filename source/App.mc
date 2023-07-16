@@ -1,11 +1,11 @@
 using Toybox.Application;
 
 class App extends Application.AppBase {
-    function initialize() {
+    public function initialize() {
         AppBase.initialize();
     }
 
-    function getInitialView() {
+    public function getInitialView() {
         var view = new View();
         return [view, new Delegate(view)];
     }

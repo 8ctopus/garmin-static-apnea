@@ -7,17 +7,17 @@ class SecondsPickerDelegate extends WatchUi.PickerDelegate {
 
     // Eigentlich ist die ID vom menuItem der propertyName.
     // Allerdings wollen wir das irgendwann ändern. Darum geben wir den property namen zusätzlich mit.
-    function initialize(_menuItem, _propertyName) {
+    public function initialize(_menuItem, _propertyName) {
         PickerDelegate.initialize();
         menuItem = _menuItem;
         propertyName = _propertyName;
     }
 
-    function onCancel() {
+    public function onCancel() {
         WatchUi.popView(WatchUi.SLIDE_IMMEDIATE);
     }
 
-    function onAccept(values) {
+    public function onAccept(values) {
         var timeInSeconds = values[0] * 60 + values[2];
         Application.getApp().setProperty(propertyName, timeInSeconds);
 

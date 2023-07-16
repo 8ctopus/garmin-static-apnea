@@ -1,11 +1,11 @@
 using Toybox.WatchUi;
 
 class MenuDelegate extends WatchUi.Menu2InputDelegate {
-    function initialize() {
+    public function initialize() {
         Menu2InputDelegate.initialize();
     }
 
-    function onSelect(menuItem) {
+    public function onSelect(menuItem) {
         // item.id is the propertyName of the saved seconds.
         var propertyName = menuItem.getId();
 

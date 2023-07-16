@@ -6,16 +6,16 @@ class Delegate extends WatchUi.BehaviorDelegate {
 
     protected var apnoeView;
 
-    function initialize(_apnoeView) {
+    public function initialize(_apnoeView) {
         BehaviorDelegate.initialize();
         apnoeView = _apnoeView;
     }
 
-    function isLastPhase() {
+    public function isLastPhase() {
         return (gCurrent + 1) >= gPhases.size();
     }
 
-    function onBack() {
+    public function onBack() {
         if (isLastPhase() && gTimerIsPaused) {
             askSaveSession();
 
@@ -32,7 +32,7 @@ class Delegate extends WatchUi.BehaviorDelegate {
         return false;
     }
 
-    function onKey(evt) {
+    public function onKey(evt) {
         if (evt.getKey() != KEY_START_STOP && evt.getKey() != KEY_NEXT_PHASE) {
             return false;
         }
@@ -57,7 +57,7 @@ class Delegate extends WatchUi.BehaviorDelegate {
         return true;
     }
 
-    function askSaveSession() {
+    public function askSaveSession() {
         // session should never be null, unless the watch has a problem (out of disk-space?)
         if (gSession == null) {
             return;
@@ -73,7 +73,7 @@ class Delegate extends WatchUi.BehaviorDelegate {
      * When a menu behavior occurs
      * @return [Boolean] true if handled, false otherwise
      */
-    function onMenu() {
+    public function onMenu() {
         var titletext = WatchUi.loadResource(Rez.Strings.settingmenutitel);
         var menu = new WatchUi.Menu2({:title=> titletext});
         var options = {};

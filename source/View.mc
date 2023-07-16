@@ -65,7 +65,7 @@ class View extends WatchUi.View {
 
     protected var timer = new Timer.Timer();
 
-    function getDuration(seq) {
+    public function getDuration(seq) {
         var propName = seq[PROPERTY];
 
         if (propName == null) {
@@ -78,7 +78,7 @@ class View extends WatchUi.View {
         return Application.getApp().getProperty(propName) * 10;
     }
 
-    function initialize() {
+    public function initialize() {
         restart();
         View.initialize();
 
@@ -86,7 +86,7 @@ class View extends WatchUi.View {
         Sensor.enableSensorEvents(method(:onSensor));
     }
 
-    function restart() {
+    public function restart() {
         gCurrent = 0;
         gTimerIsPaused = true;
         gSession = null;
@@ -103,23 +103,23 @@ class View extends WatchUi.View {
         timer.start(method(:onTimer), 100, true);
     }
 
-    function pop() {
+    public function pop() {
         WatchUi.popView();
     }
 
     // Load your resources here
-    function onLayout(dc) {
+    public function onLayout(dc) {
         setLayout(Rez.Layouts.MainLayout(dc));
     }
 
-    function onSensor(sensorInfo) {
+    public function onSensor(sensorInfo) {
         pulse = sensorInfo.heartRate;
         WatchUi.requestUpdate();
     }
 
     // ----------- RECORD AND SAVE BEGINNING ------------
     // use the select Start/Stop or touch for recording
-    function startActivityRecording() {
+    public function startActivityRecording() {
         if (Toybox has :ActivityRecording) {
             // check device for activity recording
             var activityname = WatchUi.loadResource(Rez.Strings.AppName);
@@ -152,13 +152,13 @@ class View extends WatchUi.View {
         }
     }
 
-    function stopActivityRecording() {
+    public function stopActivityRecording() {
         if ((gSession != null) && gSession.isRecording()) {
             gSession.stop();
         }
     }
 
-    function savePhaseInFitField() {
+    public function savePhaseInFitField() {
         if (fitField != null) {
             fitField.setData(gCurrent + 1);
         }
@@ -166,13 +166,13 @@ class View extends WatchUi.View {
 
     // ----------- RECORD AND SAVE END --------------------
     // ----------- ALARM PROGRAMMING BEGINNING ------------
-    function displayOn() {
+    public function displayOn() {
         if (Attention has :backlight) {
             Attention.backlight(true);
         }
     }
 
-    function beepVibrate(dutyCycle, duration) {
+    public function beepVibrate(dutyCycle, duration) {
         var beepEnabled = Application.getApp().getProperty(ALARM_BEEP_PROP_NAME);
         var vibrateEnabled = Application.getApp().getProperty(ALARM_VIBRATE_PROP_NAME);
 
@@ -185,19 +185,19 @@ class View extends WatchUi.View {
         }
     }
 
-    function beep() {
+    public function beep() {
         if (Attention has :playTone) {
             Attention.playTone(Attention.TONE_LOUD_BEEP);
         }
     }
 
-    function vibrate(dutyCycle, duration) {
+    public function vibrate(dutyCycle, duration) {
         if (Attention has :vibrate) {
             Attention.vibrate([new Attention.VibeProfile(dutyCycle, duration)]);
         }
     }
 
-    function doAlarms() {
+    public function doAlarms() {
         var timeInSeconds = gTime / 10;
 
         // Always turn display on when time is below 10 seconds (independant of alarm property)
@@ -280,7 +280,7 @@ class View extends WatchUi.View {
     }
 
     // ----------- ALARM PROGRAMMING END ------------
-    function onTimer() {
+    public function onTimer() {
         var lastPhase = gPhases.size() - 1;
 
         if (gTimerIsPaused) {
@@ -326,7 +326,7 @@ class View extends WatchUi.View {
         WatchUi.requestUpdate();
     }
 
-    function convertTimeToText(timeIn100ms) {
+    public function convertTimeToText(timeIn100ms) {
         // Add 9/10 of a second when calculating the timeInS.
         // If for instance a phase has a duration of one second, we want to display 1 for the whole second, before going to 0.
         // This is not true when counting upwards.
@@ -342,7 +342,7 @@ class View extends WatchUi.View {
         return "" + timeInS / 60 + ":" + seconds.format("%02d");
     }
 
-    function onUpdate(dc) {
+    public function onUpdate(dc) {
         var textField = View.findDrawableById("modeId");
         textField.setText(mode);
 

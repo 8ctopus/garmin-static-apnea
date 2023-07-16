@@ -8,12 +8,12 @@ class NumberFactory extends WatchUi.PickerFactory {
     protected var mFormatString;
     protected var mFont;
 
-    function getIndex(value) {
+    public function getIndex(value) {
         var index = (value / mIncrement) - mStart;
         return index;
     }
 
-    function initialize(start, stop, increment, options) {
+    public function initialize(start, stop, increment, options) {
         PickerFactory.initialize();
 
         mStart = start;
@@ -33,7 +33,7 @@ class NumberFactory extends WatchUi.PickerFactory {
         mFormatString = "%02d";
     }
 
-    function getDrawable(index, selected) {
+    public function getDrawable(index, selected) {
         return new WatchUi.Text({
             :text => getValue(index).format(mFormatString),
             :color => Graphics.COLOR_WHITE,
@@ -43,11 +43,11 @@ class NumberFactory extends WatchUi.PickerFactory {
         });
     }
 
-    function getValue(index) {
+    public function getValue(index) {
         return mStart + (index * mIncrement);
     }
 
-    function getSize() {
+    public function getSize() {
         return ( mStop - mStart ) / mIncrement + 1;
     }
 }

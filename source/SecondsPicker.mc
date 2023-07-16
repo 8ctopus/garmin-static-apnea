@@ -2,7 +2,7 @@ using Toybox.Graphics;
 using Toybox.WatchUi;
 
 class SecondsPicker extends WatchUi.Picker {
-    function initialize(defaultSeconds, title) {
+    public function initialize(defaultSeconds, title) {
         var factories = [
             new NumberFactory(0, 59, 1, {}),
             new WatchUi.Text({
@@ -32,7 +32,7 @@ class SecondsPicker extends WatchUi.Picker {
         });
     }
 
-    function onUpdate(dc) {
+    public function onUpdate(dc) {
         dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_BLACK);
         dc.clear();
         Picker.onUpdate(dc);
