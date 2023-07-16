@@ -1,7 +1,6 @@
 using Toybox.WatchUi;
 
 class ApnoeStatikMenuDelegate extends WatchUi.Menu2InputDelegate {
-
     function initialize() {
         Menu2InputDelegate.initialize();
     }
@@ -15,7 +14,6 @@ class ApnoeStatikMenuDelegate extends WatchUi.Menu2InputDelegate {
             Application.getApp().setProperty(propertyName, menuItem.isEnabled());
             return true;
         }
-
 
         var title = propertyName;
 

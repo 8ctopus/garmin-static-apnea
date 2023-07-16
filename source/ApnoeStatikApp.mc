@@ -1,6 +1,5 @@
 using Toybox.Application;
 
-
 class ApnoeStatikApp extends Application.AppBase {
 
     function initialize() {

@@ -19,12 +19,17 @@ class ApnoeStatikDelegate extends WatchUi.BehaviorDelegate {
     function onBack() {
         if (isLastPhase() && timerIsPaused) {
             askSaveSession();
-            return true;  // don't do anything else.
+
+            // don't do anything else.
+            return true;
         } else if (isLastPhase() && !timerIsPaused) {
             // simply stop timer -- don't do anything else.
             timerIsPaused = !timerIsPaused;
-            return true;  // don't do anything else.
+
+            // don't do anything else.
+            return true;
         }
+
         return false;
     }
 
@@ -36,7 +41,6 @@ class ApnoeStatikDelegate extends WatchUi.BehaviorDelegate {
         if (evt.getType() != WatchUi.PRESS_TYPE_ACTION) {
             return true;
         }
-
 
         // KEY_START_STOP is the constant defined at the top of this file.
         if (evt.getKey() == KEY_START_STOP) {
@@ -50,7 +54,6 @@ class ApnoeStatikDelegate extends WatchUi.BehaviorDelegate {
                 zeit = 1;
             }
         }
-
 
         return true;
     }
@@ -78,27 +81,27 @@ class ApnoeStatikDelegate extends WatchUi.BehaviorDelegate {
 
         // Schleife um über alle Einträge in der sequenz variable.
         for (var i = 0; i < sequenz.size(); i++) {  // - 1 weil Statik keinen gespeicherten Zahlenwert hat.
-          // Dieser Code wird der Reihe nach für RELAX1, HYPERVEN, RELAX2, STATIK ausgeführt.
-          var phase = sequenz[i];
+            // Dieser Code wird der Reihe nach für RELAX1, HYPERVEN, RELAX2, STATIK ausgeführt.
+            var phase = sequenz[i];
 
-          if (phase[PROPERTY] == null) {
+            if (phase[PROPERTY] == null) {
             // Für diese Phase gibt es keinen Zahlenwert zu speicher (z.B. Statik).
             continue;
-          }
+            }
 
-          var label = phase[NAME];
-          var savedSeconds = Application.getApp().getProperty(phase[PROPERTY]);
+            var label = phase[NAME];
+            var savedSeconds = Application.getApp().getProperty(phase[PROPERTY]);
 
-          var minutes = savedSeconds / 60;
+            var minutes = savedSeconds / 60;
 
-          // %02d bedeutet zwei Stellen mit führender 0
-          // https://developer.garmin.com/downloads/connect-iq/monkey-c/doc/Toybox/Lang/Number.html#format-instance_method
-          var seconds = savedSeconds % 60;
-          var subLabel = "" + minutes + ":" + seconds.format("%02d");  // Wir starten mit einem leeren String, damit der Compiler für das + in den Textmodus springt.
-          var id = phase[PROPERTY];
+            // %02d bedeutet zwei Stellen mit führender 0
+            // https://developer.garmin.com/downloads/connect-iq/monkey-c/doc/Toybox/Lang/Number.html#format-instance_method
+            var seconds = savedSeconds % 60;
+            var subLabel = "" + minutes + ":" + seconds.format("%02d");  // Wir starten mit einem leeren String, damit der Compiler für das + in den Textmodus springt.
+            var id = phase[PROPERTY];
 
-          var menuItem = new WatchUi.MenuItem(label, subLabel, id, options);
-          menu.addItem(menuItem);
+            var menuItem = new WatchUi.MenuItem(label, subLabel, id, options);
+            menu.addItem(menuItem);
         }
 
         var labelVibrate = WatchUi.loadResource(Rez.Strings.alarm_vibrate);

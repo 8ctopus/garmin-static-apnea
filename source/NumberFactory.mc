@@ -20,12 +20,12 @@ class NumberFactory extends WatchUi.PickerFactory {
         mStop = stop;
         mIncrement = increment;
 
-        if(options != null) {
+        if (options != null) {
             // mFormatString = options.get(:format);
             mFont = options.get(:font);
         }
 
-        if(mFont == null) {
+        if (mFont == null) {
             mFont = Graphics.FONT_NUMBER_HOT;
         }
 
@@ -34,7 +34,13 @@ class NumberFactory extends WatchUi.PickerFactory {
     }
 
     function getDrawable(index, selected) {
-        return new WatchUi.Text( { :text=>getValue(index).format(mFormatString), :color=>Graphics.COLOR_WHITE, :font=> mFont, :locX =>WatchUi.LAYOUT_HALIGN_CENTER, :locY=>WatchUi.LAYOUT_VALIGN_CENTER } );
+        return new WatchUi.Text({
+            :text => getValue(index).format(mFormatString),
+            :color => Graphics.COLOR_WHITE,
+            :font => mFont,
+            :locX => WatchUi.LAYOUT_HALIGN_CENTER,
+            :locY => WatchUi.LAYOUT_VALIGN_CENTER
+        });
     }
 
     function getValue(index) {
@@ -44,5 +50,4 @@ class NumberFactory extends WatchUi.PickerFactory {
     function getSize() {
         return ( mStop - mStart ) / mIncrement + 1;
     }
-
 }
