@@ -16,14 +16,14 @@ class Delegate extends WatchUi.BehaviorDelegate {
     }
 
     function onBack() {
-        if (isLastPhase() && timerIsPaused) {
+        if (isLastPhase() && gTimerIsPaused) {
             askSaveSession();
 
             // don't do anything else.
             return true;
-        } else if (isLastPhase() && !timerIsPaused) {
+        } else if (isLastPhase() && !gTimerIsPaused) {
             // simply stop timer -- don't do anything else.
-            timerIsPaused = !timerIsPaused;
+            gTimerIsPaused = !gTimerIsPaused;
 
             // don't do anything else.
             return true;
@@ -43,10 +43,10 @@ class Delegate extends WatchUi.BehaviorDelegate {
 
         // KEY_START_STOP is the constant defined at the top of this file.
         if (evt.getKey() == KEY_START_STOP) {
-            if (isLastPhase() && timerIsPaused) {
+            if (isLastPhase() && gTimerIsPaused) {
                 askSaveSession();
             } else {
-                timerIsPaused = !timerIsPaused;
+                gTimerIsPaused = !gTimerIsPaused;
             }
         } else if (evt.getKey() == KEY_NEXT_PHASE) {
             if (current < sequence.size() - 1) {
@@ -59,7 +59,7 @@ class Delegate extends WatchUi.BehaviorDelegate {
 
     function askSaveSession() {
         // session should never be null, unless the watch has a problem (out of disk-space?)
-        if (session == null) {
+        if (gSession == null) {
             return;
         }
 

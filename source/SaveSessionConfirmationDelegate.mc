@@ -9,8 +9,8 @@ class SaveSessionConfirmationDelegate extends WatchUi.ConfirmationDelegate {
     }
 
     function onResponse(response) {
-        if (response == WatchUi.CONFIRM_YES && session != null) {
-            session.save();
+        if (response == WatchUi.CONFIRM_YES && gSession != null) {
+            gSession.save();
         }
 
         view.restart();

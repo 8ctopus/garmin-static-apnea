@@ -48,10 +48,10 @@ var current = 0;
 
 // zeit is in seconds * 10
 var zeit;
-var timerIsPaused = true;
+var gTimerIsPaused = true;
 
 // set up session variable
-var session = null;
+var gSession = null;
 
 class View extends WatchUi.View {
     enum {
@@ -91,8 +91,8 @@ class View extends WatchUi.View {
 
     function restart() {
         current = 0;
-        timerIsPaused = true;
-        session = null;
+        gTimerIsPaused = true;
+        gSession = null;
 
         timerDirection = DOWN;
 
@@ -129,9 +129,9 @@ class View extends WatchUi.View {
             var datafield = WatchUi.loadResource(Rez.Strings.phase);
             var activityphase = activityname + " " + datafield;
 
-            if ((session == null) || (session.isRecording() == false)) {
+            if ((gSession == null) || (gSession.isRecording() == false)) {
                 // set up recording session
-                session = ActivityRecording.createSession({
+                gSession = ActivityRecording.createSession({
                     // set session name
                     :name => activityname,
                     // set sport type
@@ -140,7 +140,7 @@ class View extends WatchUi.View {
                     :subSport => ActivityRecording.SUB_SPORT_GENERIC
                 });
 
-                fitField = session.createField(
+                fitField = gSession.createField(
                     activityphase,
                     FIT_FIELD_PHASE_ID,
                     FitContributor.DATA_TYPE_UINT8, {
@@ -150,14 +150,14 @@ class View extends WatchUi.View {
                 );
 
                 fitField.setData(0);
-                session.start();
+                gSession.start();
             }
         }
     }
 
     function stopActivityRecording() {
-        if ((session != null) && session.isRecording()) {
-             session.stop();
+        if ((gSession != null) && gSession.isRecording()) {
+            gSession.stop();
         }
     }
 
@@ -286,7 +286,7 @@ class View extends WatchUi.View {
     function onTimer() {
         var lastPhase = sequence.size() - 1;
 
-        if (timerIsPaused) {
+        if (gTimerIsPaused) {
             if (current == lastPhase) {
                 // Because we stop the timer here, this is only called once.
                 // And only possible if we are already in the last phase (current == sequence.size() - 1)
@@ -297,7 +297,7 @@ class View extends WatchUi.View {
             return;
         }
 
-        if (session == null) {
+        if (gSession == null) {
             startActivityRecording();
             savePhaseInFitField();
         }
