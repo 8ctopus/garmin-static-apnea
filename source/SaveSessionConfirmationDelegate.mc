@@ -1,11 +1,11 @@
 using Toybox.WatchUi;
 
 class SaveSessionConfirmationDelegate extends WatchUi.ConfirmationDelegate {
-    hidden var apnoeView;
+    hidden var view;
 
-    function initialize(_apnoeView) {
+    function initialize(view) {
         ConfirmationDelegate.initialize();
-        apnoeView = _apnoeView;
+        view = view;
     }
 
     function onResponse(response) {
@@ -13,6 +13,6 @@ class SaveSessionConfirmationDelegate extends WatchUi.ConfirmationDelegate {
             session.save();
         }
 
-        apnoeView.restart();
+        view.restart();
     }
 }

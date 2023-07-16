@@ -23,7 +23,8 @@ const HYPERVEN = 1;
 const RELAX2 = 2;
 const STATIK = 3;
 
-var sequenz = [{
+var sequenz = [
+    {
         // [0]   RELAX1
         NAME => Rez.Strings.phase1,
         PROPERTY => "phase1Duration"
@@ -55,7 +56,7 @@ var timerIsPaused = true;
 // set up session variable
 var session = null;
 
-class ApnoeStatikView extends WatchUi.View {
+class View extends WatchUi.View {
     enum {
         UP = 1,
         DOWN = -1
@@ -132,7 +133,6 @@ class ApnoeStatikView extends WatchUi.View {
             if ((session == null) || (session.isRecording() == false)) {
                 session = ActivityRecording.createSession({
                     // set up recording session
-
                     :name=> activityname,                           // set session name
                     :sport=> ActivityRecording.SPORT_GENERIC,       // set sport type
                     :subSport=> ActivityRecording.SUB_SPORT_GENERIC // set sub sport type
@@ -142,9 +142,10 @@ class ApnoeStatikView extends WatchUi.View {
                     activityphase,
                     FIT_FIELD_PHASE_ID,
                     FitContributor.DATA_TYPE_UINT8, {
-                    :mesgType => FitContributor.MESG_TYPE_RECORD,
-                    :units=> datafield
-                });
+                        :mesgType => FitContributor.MESG_TYPE_RECORD,
+                        :units => datafield
+                    }
+                );
 
                 fitField.setData(0);
                 session.start();

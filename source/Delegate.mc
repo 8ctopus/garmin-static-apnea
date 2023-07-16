@@ -1,7 +1,6 @@
 using Toybox.WatchUi;
 
-class ApnoeStatikDelegate extends WatchUi.BehaviorDelegate {
-
+class Delegate extends WatchUi.BehaviorDelegate {
     hidden const KEY_START_STOP = WatchUi.KEY_ENTER;
     hidden const KEY_NEXT_PHASE = WatchUi.KEY_DOWN;
 
@@ -111,7 +110,6 @@ class ApnoeStatikDelegate extends WatchUi.BehaviorDelegate {
         var vibrateMenuItem = new WatchUi.ToggleMenuItem(labelVibrate, subLabelVibrate, idVibrate, vibrateCurrentlyEnabled, options);
         menu.addItem(vibrateMenuItem);
 
-
         var labelBeep = WatchUi.loadResource(Rez.Strings.alarm_beep);
         var subLabelBeep = WatchUi.loadResource(Rez.Strings.alarmOnOff);
         var idBeep = ALARM_BEEP_PROP_NAME;
@@ -119,7 +117,7 @@ class ApnoeStatikDelegate extends WatchUi.BehaviorDelegate {
         var beepMenuItem = new WatchUi.ToggleMenuItem(labelBeep, subLabelBeep, idBeep, beepCurrentlyEnabled, options);
         menu.addItem(beepMenuItem);
 
-        WatchUi.pushView(menu, new ApnoeStatikMenuDelegate(), WatchUi.SLIDE_UP);
+        WatchUi.pushView(menu, new MenuDelegate(), WatchUi.SLIDE_UP);
         return true;
     }
 }

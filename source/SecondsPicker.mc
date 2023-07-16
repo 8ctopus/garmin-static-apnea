@@ -25,9 +25,9 @@ class SecondsPicker extends WatchUi.Picker {
 
         var defaults = [defaultSeconds / 60, 0, defaultSeconds % 60];
         Picker.initialize({
-            :pattern=>factories,
-            :defaults=>defaults,
-            :title=>titleDrawable
+            :pattern => factories,
+            :defaults => defaults,
+            :title => titleDrawable
         });
     }
 

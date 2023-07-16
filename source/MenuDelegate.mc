@@ -1,6 +1,6 @@
 using Toybox.WatchUi;
 
-class ApnoeStatikMenuDelegate extends WatchUi.Menu2InputDelegate {
+class MenuDelegate extends WatchUi.Menu2InputDelegate {
     function initialize() {
         Menu2InputDelegate.initialize();
     }

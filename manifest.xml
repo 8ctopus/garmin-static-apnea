@@ -1,6 +1,6 @@
 <iq:manifest xmlns:iq="http://www.garmin.com/xml/connectiq" version="3">
     <iq:application
-        entry="ApnoeStatikApp"
+        entry="App"
         id="a2d49659a234406e9c20da55c2efb5ee"
         launcherIcon="@Drawables.LauncherIcon"
         minSdkVersion="3.0.0"
