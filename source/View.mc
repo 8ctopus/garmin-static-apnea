@@ -23,7 +23,7 @@ const HYPERVEN = 1;
 const RELAX2 = 2;
 const STATIK = 3;
 
-var sequenz = [
+var sequence = [
     {
         // [0]   RELAX1
         NAME => Rez.Strings.phase1,
@@ -99,7 +99,7 @@ class View extends WatchUi.View {
 
         timerDirection = DOWN;
 
-        modus = sequenz[0][NAME];
+        modus = sequence[0][NAME];
 
         // zeit is in seconds * 10
         zeit = null;
@@ -280,12 +280,12 @@ class View extends WatchUi.View {
 
     // ----------- ALARM PROGRAMMING END ------------
     function onTimer() {
-        var lastPhase = sequenz.size() - 1;
+        var lastPhase = sequence.size() - 1;
 
         if (timerIsPaused) {
             if (current == lastPhase) {
                 // Because we stop the timer here, this is only called once.
-                // And only possible if we are already in the last phase (current == sequenz.size() - 1)
+                // And only possible if we are already in the last phase (current == sequence.size() - 1)
                 stopActivityRecording();
                 timer.stop();
             }
@@ -301,7 +301,7 @@ class View extends WatchUi.View {
         // Only set the zeit when we really start the count down.
         // This is necessary as the menu could possible change the time before we start the count down.
         if (zeit == null) {
-            zeit = getDuration(sequenz[0]);
+            zeit = getDuration(sequence[0]);
         }
 
         zeit += timerDirection;
@@ -312,10 +312,10 @@ class View extends WatchUi.View {
             current += 1;
             savePhaseInFitField();
 
-            modus = sequenz[current][NAME];
-            zeit = getDuration(sequenz[current]);
+            modus = sequence[current][NAME];
+            zeit = getDuration(sequence[current]);
 
-            if (current == sequenz.size() - 1) {
+            if (current == sequence.size() - 1) {
                 //current += 1; // invalid current, but easy to check, if we have finished
                 savePhaseInFitField();
                 timerDirection = UP;
@@ -343,32 +343,31 @@ class View extends WatchUi.View {
 
     // Update the view
     function onUpdate(dc) {
-        var currentZeit = zeit;
+        var currentTime = zeit;
 
-        if (currentZeit == null) {
-            currentZeit = getDuration(sequenz[0]);
+        if (currentTime == null) {
+            currentTime = getDuration(sequence[0]);
         }
 
-        var zeitText = convertTimeToText(currentZeit);
+        var currentTimeText = convertTimeToText(currentTime);
 
-        var textFeld;
-        textFeld = View.findDrawableById("modusId");
-        textFeld.setText(modus);
+        var textField = View.findDrawableById("modusId");
+        textField.setText(modus);
 
-        textFeld = View.findDrawableById("zeitId");
-        textFeld.setText(zeitText);
+        textField = View.findDrawableById("zeitId");
+        textField.setText(currentTimeText);
 
-        textFeld = View.findDrawableById("pulsId");
+        textField = View.findDrawableById("pulsId");
 
         var hrPrefix = WatchUi.loadResource(Rez.Strings.heartRatePrefix);
 
         if (puls != null && puls > 0) {
-            textFeld.setText(hrPrefix + " " + puls);
+            textField.setText(hrPrefix + " " + puls);
         } else {
-            textFeld.setText(hrPrefix + " --");
+            textField.setText(hrPrefix + " --");
         }
 
-        // Call the parent onUpdate function to redraw the layout
+        // call the parent onUpdate function to redraw the layout
         View.onUpdate(dc);
 
         //dc.setColor(Graphics.COLOR_BLUE, Graphics.COLOR_RED);
