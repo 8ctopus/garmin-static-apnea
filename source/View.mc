@@ -46,8 +46,8 @@ var gSequence = [
 
 var gCurrent = 0;
 
-// zeit is in seconds * 10
-var zeit;
+// in seconds * 10
+var gTime;
 var gTimerIsPaused = true;
 
 // set up session variable
@@ -76,7 +76,7 @@ class View extends WatchUi.View {
         }
 
         // Timer is called 10 times / second.
-        // And every time we change the zeit variable.
+        // And every time we change the gTime variable.
         // The saved duration is in seconds.
         return Application.getApp().getProperty(propName) * 10;
     }
@@ -98,8 +98,8 @@ class View extends WatchUi.View {
 
         mode = gSequence[0][NAME];
 
-        // zeit is in seconds * 10
-        zeit = null;
+        // gTime is in seconds * 10
+        gTime = null;
 
         fitField = null;
 
@@ -201,7 +201,7 @@ class View extends WatchUi.View {
     }
 
     function doAlarms() {
-        var timeInSeconds = zeit / 10;
+        var timeInSeconds = gTime / 10;
 
         // Always turn display on when time is below 10 seconds (independant of alarm property)
         if (timeInSeconds <= 10) {
@@ -243,39 +243,39 @@ class View extends WatchUi.View {
         //        }
         // ALARM SETINGS BEISTIEL -------------------------------------------------------------------
 
-        // zeit is in zehntel-Sekunden !
+        // gTime is in seconds * 10
         if (gCurrent == RELAX1 || gCurrent == RELAX2) {
-            if (zeit > 300 && zeit % 300 == 0) {
+            if (gTime > 300 && gTime % 300 == 0) {
                 beepVibrate(50, 250);
-            } else if (zeit == 300 || zeit == 300-5 || zeit == 300-10) {
+            } else if (gTime == 300 || gTime == 300-5 || gTime == 300-10) {
                 beepVibrate(50, 250);
-            } else if (zeit == 200 || zeit == 200-5) {
+            } else if (gTime == 200 || gTime == 200-5) {
                 beepVibrate(50, 250);
-            } else if (zeit == 100) {
+            } else if (gTime == 100) {
                 beepVibrate(50, 250);
-            } else if (zeit == 0) {
-                // zeit == 0 wird gefragt bevor zeit <= 50 (nächster if block)
+            } else if (gTime == 0) {
+                // gTime == 0 wird gefragt bevor gTime <= 50 (nächster if block)
                 beepVibrate(100, 750);
-            } else if (zeit <= 50 && zeit % 10 == 0) {
-                // durch else if   wird dieser block nicht ausgeführt, wenn zeit == 0
-                // alternativ könnte man && zeit > 0 zum if hinzufügen.
+            } else if (gTime <= 50 && gTime % 10 == 0) {
+                // durch else if wird dieser block nicht ausgeführt, wenn gTime == 0
+                // alternativ könnte man && gTime > 0 zum if hinzufügen.
                 beepVibrate(50, 250);
             }
         }
 
         if (gCurrent == HYPERVEN) {
-            if (zeit == 0) {
-                // zeit == 0 wird gefragt bevor zeit <= 50 (nächster if block)
+            if (gTime == 0) {
+                // gTime == 0 wird gefragt bevor gTime <= 50 (nächster if block)
                 beepVibrate(100, 750);
-            } else if (zeit <= 50 && zeit % 10 == 0) {
-                // durch else if   wird dieser block nicht ausgeführt, wenn zeit == 0
-                // alternativ könnte man && zeit > 0 zum if hinzufügen.
+            } else if (gTime <= 50 && gTime % 10 == 0) {
+                // durch else if wird dieser block nicht ausgeführt, wenn gTime == 0
+                // alternativ könnte man && gTime > 0 zum if hinzufügen.
                 beepVibrate(50, 250);
             }
         }
 
         if (gCurrent == STATIK) {
-            if (zeit <= 50 && zeit % 10 == 0 && zeit > 0) {
+            if (gTime <= 50 && gTime % 10 == 0 && gTime > 0) {
                 // 0 wird eh noch vom RELAX2 0er alarmiert.
                 beepVibrate(50, 250);
             }
@@ -302,22 +302,22 @@ class View extends WatchUi.View {
             savePhaseInFitField();
         }
 
-        // Only set the zeit when we really start the count down.
+        // Only set the gTime when we really start the count down.
         // This is necessary as the menu could possible change the time before we start the count down.
-        if (zeit == null) {
-            zeit = getDuration(gSequence[0]);
+        if (gTime == null) {
+            gTime = getDuration(gSequence[0]);
         }
 
-        zeit += timerDirection;
+        gTime += timerDirection;
 
         doAlarms();
 
-        if (zeit == 0 || zeit < 0) {
+        if (gTime == 0 || gTime < 0) {
             gCurrent += 1;
             savePhaseInFitField();
 
             mode = gSequence[gCurrent][NAME];
-            zeit = getDuration(gSequence[gCurrent]);
+            gTime = getDuration(gSequence[gCurrent]);
 
             if (gCurrent == gSequence.size() - 1) {
                 //gCurrent += 1; // invalid but easy to check if we have finished
@@ -349,7 +349,7 @@ class View extends WatchUi.View {
         var textField = View.findDrawableById("modeId");
         textField.setText(mode);
 
-        var currentTime = zeit;
+        var currentTime = gTime;
 
         if (currentTime == null) {
             currentTime = getDuration(gSequence[0]);

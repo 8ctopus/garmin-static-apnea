@@ -50,7 +50,7 @@ class Delegate extends WatchUi.BehaviorDelegate {
             }
         } else if (evt.getKey() == KEY_NEXT_PHASE) {
             if (gCurrent < gSequence.size() - 1) {
-                zeit = 1;
+                gTime = 1;
             }
         }
 
