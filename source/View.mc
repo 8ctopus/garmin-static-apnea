@@ -23,7 +23,7 @@ const HYPERVEN = 1;
 const RELAX2 = 2;
 const STATIK = 3;
 
-var gSequence = [
+var gPhases = [
     {
         // [0]   RELAX1
         NAME => Rez.Strings.phase1,
@@ -96,7 +96,7 @@ class View extends WatchUi.View {
 
         timerDirection = DOWN;
 
-        mode = gSequence[0][NAME];
+        mode = gPhases[0][NAME];
 
         // gTime is in seconds * 10
         gTime = null;
@@ -284,12 +284,12 @@ class View extends WatchUi.View {
 
     // ----------- ALARM PROGRAMMING END ------------
     function onTimer() {
-        var lastPhase = gSequence.size() - 1;
+        var lastPhase = gPhases.size() - 1;
 
         if (gTimerIsPaused) {
             if (gCurrent == lastPhase) {
                 // Because we stop the timer here, this is only called once.
-                // And only possible if we are already in the last phase (gCurrent == gSequence.size() - 1)
+                // And only possible if we are already in the last phase (gCurrent == gPhases.size() - 1)
                 stopActivityRecording();
                 timer.stop();
             }
@@ -305,7 +305,7 @@ class View extends WatchUi.View {
         // Only set the gTime when we really start the count down.
         // This is necessary as the menu could possible change the time before we start the count down.
         if (gTime == null) {
-            gTime = getDuration(gSequence[0]);
+            gTime = getDuration(gPhases[0]);
         }
 
         gTime += timerDirection;
@@ -316,10 +316,10 @@ class View extends WatchUi.View {
             gCurrent += 1;
             savePhaseInFitField();
 
-            mode = gSequence[gCurrent][NAME];
-            gTime = getDuration(gSequence[gCurrent]);
+            mode = gPhases[gCurrent][NAME];
+            gTime = getDuration(gPhases[gCurrent]);
 
-            if (gCurrent == gSequence.size() - 1) {
+            if (gCurrent == gPhases.size() - 1) {
                 //gCurrent += 1; // invalid but easy to check if we have finished
                 savePhaseInFitField();
                 timerDirection = UP;
@@ -352,7 +352,7 @@ class View extends WatchUi.View {
         var currentTime = gTime;
 
         if (currentTime == null) {
-            currentTime = getDuration(gSequence[0]);
+            currentTime = getDuration(gPhases[0]);
         }
 
         var currentTimeText = convertTimeToText(currentTime);

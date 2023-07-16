@@ -17,8 +17,8 @@ class MenuDelegate extends WatchUi.Menu2InputDelegate {
         var title = propertyName;
 
         // extract title using property name
-        for (var i = 0; i < gSequence.size(); i++) {
-            var phase = gSequence[i];
+        for (var i = 0; i < gPhases.size(); i++) {
+            var phase = gPhases[i];
 
             if (phase[PROPERTY] == propertyName) {
                 title = WatchUi.loadResource(phase[NAME]);
