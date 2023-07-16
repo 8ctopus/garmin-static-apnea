@@ -59,10 +59,12 @@ class Delegate extends WatchUi.BehaviorDelegate {
             return;
         }
 
-        var message = WatchUi.loadResource(Rez.Strings.saveActivityQuestion);
-        var view = new WatchUi.Confirmation(message);
         var delegate = new SaveSessionConfirmationDelegate(view);
-        WatchUi.pushView(view, delegate, WatchUi.SLIDE_UP);
+
+        var message = WatchUi.loadResource(Rez.Strings.saveActivityQuestion);
+        var confirmationView = new WatchUi.Confirmation(message);
+
+        WatchUi.pushView(confirmationView, delegate, WatchUi.SLIDE_UP);
     }
 
     /**
