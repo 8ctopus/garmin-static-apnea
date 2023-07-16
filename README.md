@@ -12,6 +12,19 @@ This project is a fork of the [original application from Max Stransky](https://g
 
     https://developer.garmin.com/connect-iq/sdk/
 
+#### install the SDK
+
+This application uses SDK version 4.0.6. It is not yet compatible with higher versions of the SDK.
+
+#### install the watches
+
+You will need the following watches installed
+
+- descentmk1
+- descentmk2
+- descentmk2s
+- fenix5 (for the font)
+
 ### install the Java runtime
 
     https://www.java.com/en/download/
