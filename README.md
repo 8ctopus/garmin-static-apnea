@@ -4,6 +4,8 @@
 
 A program for Garmin watches. The “Apnea-Static-Timer" is a simple timer and stopwatch for training apnea statics. It is written in “Monkey C" a language specially developed for Garmin watches.
 
+This project is a fork of the [original application from Max Stransky](https://gitlab.com/ApnoeMax/apnoe-statik-timer).
+
 ## Installation of development environment
 
 ### install SDK manager
