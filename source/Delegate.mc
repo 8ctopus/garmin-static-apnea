@@ -104,14 +104,14 @@ class Delegate extends WatchUi.BehaviorDelegate {
             menu.addItem(menuItem);
         }
 
-        var labelVibrate = WatchUi.loadResource(Rez.Strings.alarm_vibrate);
+        var labelVibrate = WatchUi.loadResource(Rez.Strings.alarmVibrate);
         var subLabelVibrate = WatchUi.loadResource(Rez.Strings.alarmOnOff);
         var idVibrate = ALARM_VIBRATE_PROP_NAME;
         var vibrateCurrentlyEnabled = Application.getApp().getProperty(ALARM_VIBRATE_PROP_NAME);
         var vibrateMenuItem = new WatchUi.ToggleMenuItem(labelVibrate, subLabelVibrate, idVibrate, vibrateCurrentlyEnabled, options);
         menu.addItem(vibrateMenuItem);
 
-        var labelBeep = WatchUi.loadResource(Rez.Strings.alarm_beep);
+        var labelBeep = WatchUi.loadResource(Rez.Strings.alarmBeep);
         var subLabelBeep = WatchUi.loadResource(Rez.Strings.alarmOnOff);
         var idBeep = ALARM_BEEP_PROP_NAME;
         var beepCurrentlyEnabled = Application.getApp().getProperty(ALARM_BEEP_PROP_NAME);

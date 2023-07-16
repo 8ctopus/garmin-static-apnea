@@ -1,5 +1,5 @@
 <strings>
-    <string id="AppName">Apnea Statics</string>
+    <string id="appName">Apnea Static</string>
 
     <string id="prompt">click the menu button</string>
 
@@ -8,8 +8,8 @@
     <string id="phase3">relaxation 2 (s)</string>
     <string id="phase4">static</string>
     
-    <string id="alarm_beep">Alarm Beep</string>
-    <string id="alarm_vibrate">Alarm Vibrate</string>
+    <string id="alarmBeep">Alarm Beep</string>
+    <string id="alarmVibrate">Alarm Vibrate</string>
     
     <string id="phase">Phase</string>
     <string id="phase_data_label">phase</string>    

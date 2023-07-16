@@ -22,11 +22,11 @@
         </setting>
         -->
                 
-        <setting propertyKey="@Properties.alarmBeep" title="@Strings.alarm_beep">
+        <setting propertyKey="@Properties.alarmBeep" title="@Strings.alarmBeep">
             <settingConfig type="boolean" />
         </setting>
                 
-        <setting propertyKey="@Properties.alarmVibrate" title="@Strings.alarm_vibrate">
+        <setting propertyKey="@Properties.alarmVibrate" title="@Strings.alarmVibrate">
             <settingConfig type="boolean" />
         </setting>
     </settings>

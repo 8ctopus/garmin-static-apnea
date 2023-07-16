@@ -1,5 +1,5 @@
 <strings>
-    <string id="AppName">Apnoe Statik</string>
+    <string id="appName">Apnoe Statik</string>
 
     <string id="prompt">klick den Menü button</string>
 
@@ -8,8 +8,8 @@
     <string id="phase3">RELAX-2</string>
     <string id="phase4">STATIK</string>
     
-    <string id="alarm_beep">Alarm-Ton</string>
-    <string id="alarm_vibrate">Vibrations-Alarm</string>
+    <string id="alarmBeep">Alarm-Ton</string>
+    <string id="alarmVibrate">Vibrations-Alarm</string>
     
     <string id="phase">Phase</string>
     <string id="phase_data_label">Phase</string>    

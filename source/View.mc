@@ -79,7 +79,7 @@ class View extends WatchUi.View {
     public function startActivityRecording() {
         if (Toybox has :ActivityRecording) {
             // check device for activity recording
-            var activityname = WatchUi.loadResource(Rez.Strings.AppName);
+            var activityname = WatchUi.loadResource(Rez.Strings.appName);
             var datafield = WatchUi.loadResource(Rez.Strings.phase);
             var activityphase = activityname + " " + datafield;
 

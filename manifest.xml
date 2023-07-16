@@ -4,7 +4,7 @@
         id="a2d49659a234406e9c20da55c2efb5ee"
         launcherIcon="@Drawables.LauncherIcon"
         minSdkVersion="3.0.0"
-        name="@Strings.AppName"
+        name="@Strings.appName"
         type="watch-app"
         version="1.0.2"
     >
