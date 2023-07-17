@@ -49,3 +49,9 @@ You will need the following watches installed
 ## debugging
 
 In VSCode, select `run app (apnoe-statik-timer)` and select `Descent Mk1`. It should open the `Connect IQ Device Simulator` and show the application.
+
+## references
+
+- [Monkey C language](https://developer.garmin.com/connect-iq/reference-guides/monkey-c-reference/#monkeyclanguagereference)
+- [Core topics](https://developer.garmin.com/connect-iq/core-topics/)
+- [Toolbox API](https://developer.garmin.com/connect-iq/api-docs/)
